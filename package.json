@@ -1,0 +1,25 @@
+{
+  "name": "openai",
+  "version": "1.0.0",
+  "description": "OpenAI Bot",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon -q -e .js,.env,.json main.js",
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "chatgpt",
+    "openai"
+  ],
+  "author": "Kasra Karami <Kasra.Karami.KK@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "openai": "^4.29.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
