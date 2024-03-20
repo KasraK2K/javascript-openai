@@ -16,7 +16,9 @@
   "author": "Kasra Karami <Kasra.Karami.KK@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@langchain/openai": "^0.0.22",
     "dotenv": "^16.4.5",
+    "langchain": "^0.1.28",
     "openai": "^4.29.1"
   },
   "devDependencies": {

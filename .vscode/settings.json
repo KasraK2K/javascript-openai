@@ -1,4 +1,4 @@
 {
   "nuxt.isNuxtApp": false,
-  "cSpell.words": ["openai"]
+  "cSpell.words": ["langchain", "openai", "vectorstores"]
 }
