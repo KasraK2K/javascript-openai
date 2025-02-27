@@ -5,8 +5,8 @@
 	"main": "main.js",
 	"type": "module",
 	"scripts": {
-		"dev": "NODE_NO_WARNINGS=1 nodemon -q -e .js,.env,.json chat.js",
-		"start": "NODE_NO_WARNINGS=1 node chat.js",
+		"dev": "NODE_NO_WARNINGS=1 nodemon -q -e .js,.env,.json src/chat.js",
+		"start": "NODE_NO_WARNINGS=1 node src/chat.js",
 		"test": "jest"
 	},
 	"keywords": [
