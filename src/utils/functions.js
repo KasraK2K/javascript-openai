@@ -1,5 +1,5 @@
 /* ------------------------------ Dependencies ------------------------------ */
-import { evaluate, re } from 'mathjs'
+import { evaluate } from 'mathjs'
 import dotenv from 'dotenv'
 dotenv.config()
 /* ----------------------------- Custom Modules ----------------------------- */
@@ -11,7 +11,7 @@ const MESSAGES = [{ role: 'user', content: QUESTION }]
 
 const functions = {
     calculate: async function ({ expression }) {
-        console.log(`🧮 Calculating: ${expression}`)
+        console.log(`🧮 Calculating: ${expression} result should be: ${evaluate('1 + sin(4/2 deg) / 3 ^ 3 -1 * 3 + pi + max(3,2) % log(24, 10)')}`)
         try {
             return { result: evaluate(expression) }
         } catch (error) {
