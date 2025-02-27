@@ -19,6 +19,7 @@
 		"@langchain/openai": "^0.4.4",
 		"dotenv": "^16.4.7",
 		"langchain": "^0.3.19",
+		"mathjs": "^14.2.1",
 		"openai": "^4.85.4"
 	},
 	"devDependencies": {
