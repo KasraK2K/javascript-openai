@@ -1,27 +1,27 @@
 {
-  "name": "openai",
-  "version": "1.0.0",
-  "description": "OpenAI Bot",
-  "main": "main.js",
-  "type": "module",
-  "scripts": {
-    "dev": "nodemon -q -e .js,.env,.json main.js",
-    "start": "node main.js",
-    "test": "jest"
-  },
-  "keywords": [
-    "chatgpt",
-    "openai"
-  ],
-  "author": "Kasra Karami <Kasra.Karami.KK@gmail.com>",
-  "license": "ISC",
-  "dependencies": {
-    "@langchain/openai": "^0.0.22",
-    "dotenv": "^16.4.5",
-    "langchain": "^0.1.28",
-    "openai": "^4.29.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
-  }
+	"name": "openai",
+	"version": "1.0.0",
+	"description": "OpenAI Bot",
+	"main": "main.js",
+	"type": "module",
+	"scripts": {
+		"dev": "NODE_NO_WARNINGS=1 nodemon -q -e .js,.env,.json chat.js",
+		"start": "NODE_NO_WARNINGS=1 node chat.js",
+		"test": "jest"
+	},
+	"keywords": [
+		"chatgpt",
+		"openai"
+	],
+	"author": "Kasra Karami <Kasra.Karami.KK@gmail.com>",
+	"license": "ISC",
+	"dependencies": {
+		"@langchain/openai": "^0.4.4",
+		"dotenv": "^16.4.7",
+		"langchain": "^0.3.19",
+		"openai": "^4.85.4"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.9"
+	}
 }
