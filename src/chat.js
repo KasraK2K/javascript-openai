@@ -7,6 +7,9 @@ import { openai } from './utils/openai.js'
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------- Constants ------------------------------- */
+const green = chalk.hex('#1de9b6')
+const blue = chalk.hex('#2979ff')
+const yellow = chalk.hex('#ffd600')
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -16,7 +19,7 @@ const rl = readline.createInterface({
 /**
  * @param {{role: 'assistant' | 'function' | 'system' | 'tool' | 'user'; content: string}} history
  * @param {string} message
- * @returns {{role: "assistant"; content: string}}
+ * @returns {Promise<{role: "assistant"; content: string}>}
  */
 async function newMessage(history, message) {
     const response = await openai.chat.completions.create({
@@ -45,7 +48,7 @@ function chat() {
     ]
 
     function start() {
-        rl.question('You: ', async (userInput) => {
+        rl.question(yellow('You: '), async (userInput) => {
             if (userInput.toLowerCase() === 'exit') {
                 rl.close()
                 return
@@ -54,16 +57,16 @@ function chat() {
             const userMessage = formatMessage(userInput)
             const response = await newMessage(history, userMessage)
             history.push(userMessage, response)
-            console.log(`\n\nAI: ${response.content}`)
+            console.log(`\n\n${green('AI: ')}${response.content}`)
 
             start()
         })
     }
 
-    console.log('AI: how can I help you today?')
+    console.log(`${green('AI: ')}how can I help you today?`)
     start()
 }
 
-console.log("Chatbot initialized. type 'exit' to end the chat")
+console.log(blue("Chatbot initialized. type 'exit' to end the chat"))
 
 chat()
