@@ -11,12 +11,22 @@ const MESSAGES = [{ role: 'user', content: QUESTION }]
 
 const functions = {
     calculate: async function ({ expression }) {
-        console.log(`🧮 Calculating: ${expression} result should be: ${evaluate('1 + sin(4/2 deg) / 3 ^ 3 -1 * 3 + pi + max(3,2) % log(24, 10)')}`)
+        console.log(`🧮 Calculating: ${expression}`)
         try {
             return { result: evaluate(expression) }
         } catch (error) {
             console.error('❌ Calculation Error:', error.message)
             return { error: 'Invalid mathematical expression' }
+        }
+    },
+    generateImage: async function ({ prompt }) {
+        console.log('🎨 Generating Image')
+        try {
+            const result = await openai.images.generate({ prompt })
+            return result.data[0].url
+        } catch (error) {
+            console.error('❌ Generating Image Error:', error.message)
+            return { error: 'Invalid generation image prompt' }
         }
     },
 }
@@ -39,6 +49,20 @@ async function getCompletion(messages) {
                             },
                         },
                         required: ['expression'],
+                    },
+                },
+                {
+                    name: 'generateImage',
+                    description: 'Generate image based on a prompt',
+                    parameters: {
+                        type: 'object',
+                        properties: {
+                            prompt: {
+                                type: 'string',
+                                description: 'The prompt to generate the image',
+                            },
+                        },
+                        required: ['prompt'],
                     },
                 },
             ],
